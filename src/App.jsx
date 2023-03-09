@@ -113,7 +113,7 @@ export default function App() {
                         radio === 'all'?
                         <tbody id="todo-body">
                             { todoList.map((todo, index) => (
-                                <tr>
+                                <tr key={ todo.id }>
                                     <td>{ index }</td>
                                     <td>{ todo.id }</td>
                                     <td>{ todo.comment }</td>
