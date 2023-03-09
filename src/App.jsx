@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 export default function App() {
     // todoリスト
@@ -7,7 +7,7 @@ export default function App() {
     const [filteredTodoList, setFilteredTodoList] = useState([]);
     const [radio, setRadio] = useState('all');
 
-    const [message, setMessage] = useState('');
+    // const [message, setMessage] = useState('');
 
     // radioボタン更新
     const handleChange = (event) => {
@@ -66,15 +66,15 @@ export default function App() {
         setTodoText("");
     };
 
-    useEffect(() => {
-        // fetchでバックエンドExpressのサーバを指定
-        fetch('/api')
-            // レスポンスをjsonとして受け取り、jsオブジェクトを生成
-            .then((res) => res.json())
-            // 生成したjsオブジェクトをdataに代入
-            // data.messageで取り出したデータをuseStateに保存
-            .then((data) => setMessage(data.message));
-    }, []);
+    // useEffect(() => {
+    //     // fetchでバックエンドExpressのサーバを指定
+    //     fetch('/api')
+    //         // レスポンスをjsonとして受け取り、jsオブジェクトを生成
+    //         .then((res) => res.json())
+    //         // 生成したjsオブジェクトをdataに代入
+    //         // data.messageで取り出したデータをuseStateに保存
+    //         .then((data) => setMessage(data.message));
+    // }, []);
 
     return (
         <>
@@ -125,7 +125,7 @@ export default function App() {
                         :
                         <tbody id="todo-body">
                             { filteredTodoList.map((todo, index) => (
-                                <tr>
+                                <tr key={ todo.id }>
                                     <td>{ index }</td>
                                     <td>{ todo.comment }</td>
                                     <td><button onClick={ () => onClickSwitch(index) }>{ todo.status }</button></td>
@@ -143,7 +143,7 @@ export default function App() {
             </div>
             <div className="front-end">
                 <p>front-end</p>
-                <p>{ message.comment }</p>
+                {/* <p>{ message.comment }</p> */}
             </div>
         </>
     );
