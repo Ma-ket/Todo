@@ -7,14 +7,16 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "lint": "eslint src",
+    "lint": "eslint src/*",
     "test": "vitest run"
   },
   "dependencies": {
+    "eslint": "^8.36.0",
     "firebase": "^9.17.1",
     "firebase-tools": "^11.22.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.9.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
@@ -22,7 +24,7 @@
     "@types/react-dom": "^18.0.9",
     "@vitejs/plugin-react": "^3.0.0",
     "babel-loader": "^8.3.0",
-    "vite": "^4.0.0",
+    "eslint-plugin-react": "^7.32.2",
     "vitest": "^0.28.5"
   }
 }
