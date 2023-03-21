@@ -3,8 +3,13 @@ import { createRoot } from 'react-dom/client';
 
 import App from './App';
 
+const container = document.getElementById('root');
+const root = createRoot(container);
+root.render(<App />);
+
+
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+import { getAnalytics, logEvent } from "firebase/analytics";
 
 const firebaseConfig = {
     apiKey: import.meta.env.VITE_APP_KEY,
@@ -15,14 +20,11 @@ const firebaseConfig = {
 	appId: import.meta.env.VITE_APP_ID,
 	measurementId: "G-H6RNDNEYBV"
 };
+
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app)
-
-const container = document.getElementById('root');
-const root = createRoot(container);
-
-root.render(<App />);
-
-
-
+const analytics = getAnalytics(app);
+logEvent(analytics, 'select_content', {
+    content_type: 'image',
+    content_id: 'P12453'
+});
 
